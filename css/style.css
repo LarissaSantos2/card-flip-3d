@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* estilização do corpo da página */
+body {
+  height: 100vh;
+  background: linear-gradient(45deg, #f4d8f1 0%, #f7ebf9 100%);
+}
+
+.container,
+.front-face,
+.contents,
+.back-face {
+  position: absolute;
+}
+
+.container {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 290px;
+  transform-style: preserve-3d; /* preserva a rotação */
+  perspective: 1000px;
+}
+
+/* frente do card */
+.front-face,
+.back-face {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(../img/image-card.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1); /* curva de aceleração personalizada */
+}
+
+/* informações */
+.contents {
+  left: 0;
+  top: 50%;
+  top: 50%;
+  width: 100%;
+  perspective: 100px;
+  transform: translateY(-50%) translateZ(60px) scale(0.94);
+}
+
+.front p {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* efeito parágrafo */
+.front p::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 100px;
+  background-color: #fff;
+  transition: opacity 0.3s ease;
+}
+
+.front p:hover::after {
+  opacity: 1;
+}
+
+.front span {
+  color: #fff;
+  font-size: 17px;
+}
+
+/* parte traseira do card */
+.back-face {
+  transform: rotateY(180deg);
+  background: linear-gradient(45deg, #a80a81, #032535 100%);
+}
+
+.back {
+  color: #fff;
+}
+
+.back h2 {
+  font-size: 33px;
+  padding-bottom: 5px;
+}
+
+.back span {
+  font-size: 25px;
+}
+
+/* ícones redes de contato */
+.icons {
+  margin: 10px 0;
+}
+
+.icons .fab {
+  color: #500962;
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  line-height: 40px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* rotação card traseiro */
+.container:hover > .back-face {
+  transform: rotateY(0deg);
+}
+
+/* rotação card frontal */
+.container:hover > .front-face {
+  transform: rotateY(-180deg);
+}
