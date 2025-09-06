@@ -1,4 +1,4 @@
-# Card Flip 3D - Larissa Oliveira
+# 👩🏽‍💻 Card Flip 3D
 
 Este projeto apresenta um **card 3D interativo**, desenvolvido com **HTML e CSS**, que mostra informações pessoais na frente e links de redes sociais na parte traseira. O card possui efeito de **flip 3D** ao passar o mouse.
 
